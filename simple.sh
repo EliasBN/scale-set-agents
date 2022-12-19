@@ -1,8 +1,8 @@
-az group create -n "nkom-test" -l "norwayeast"
+az group create -n "agent-test" -l "norwayeast"
 
 az vmss create \
---name "nkom-test-vmss" \
---resource-group "nkom-test" \
+--name "scale-set-test-vmss" \
+--resource-group "agent-test" \
 --image UbuntuLTS \
 --vm-sku Standard_B1s \
 --storage-sku StandardSSD_LRS \

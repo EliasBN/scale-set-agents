@@ -1,6 +1,6 @@
 #!/bin/bash
 
-readonly RG_NAME='nkom-test'
+readonly RG_NAME='agent-test'
 readonly KV_NAME=$RG_NAME'-kv'
 # use current sub
 readonly SUB_ID=$(az account show --query id)
@@ -20,7 +20,7 @@ az keyvault secret set --vault-name $KV_NAME --name "testPassword" --value $(ope
 readonly ADMIN_PASSWORD=$(az keyvault secret show --vault-name $KV_NAME --name "testPassword" --query value)
 
 az deployment group create \
-  --name nkom-demo \
+  --name agent-demo \
   --resource-group $RG_NAME \
   --template-file './main.bicep' \
   --parameters adminPassword="$ADMIN_PASSWORD" resourceGroupName="$RG_NAME"
